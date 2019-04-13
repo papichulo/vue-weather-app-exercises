@@ -1,20 +1,21 @@
+<script>
+  export default {
+    name: 'app',
+    data: () => ({
+      // component state goes here
+    }),
+    methods: {
+      // method for updating input value goes here
+      // method for click event goes here
+    }
+  }
+</script>
+
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h2>Weather App</h2>
   </div>
 </template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
 <style>
 #app {
