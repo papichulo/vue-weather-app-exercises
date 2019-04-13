@@ -35,7 +35,9 @@ So add a new button in the iteration of elements, so there is one button per cit
 When clicking this button the corresponding city should be removed and only that city
 
 ### After completion
+
 * There should a added button per city in the city list
+
 * When a remove button is clicked the corresponding element should be removed
 
 ### Tips
@@ -45,14 +47,28 @@ Use ```filter``` to remove the correct element from the list.
 
 If you get stuck or when you finished the exercies, the is finished example is [here](examples/step-2.PNG). As well in git branch step-2.
 
+## Exercies 3, integrate twoards the weather api
 
-## Step 3, save the list and load on update
+In this exercies we will fetch the weather from openweatherapi and store that in our component state instead of just a city name. The Api integration is already created, what you need to do is first to add a Keys.js in the util folder. Then we need to fetch the weather for the city once we add a new city in our GUI.
 
-Now we want to save the list of elements and use the same list on enter or reloads of the page
+Openweatherapi gives us more the just the current weather, so we will store all the information from the API response in our state for now, you can later decide what to remove and what to save.
 
-## Step 4, get weather for a city
+### After completion
 
-## Step 5, show weather information
+* The method that adds a new city to the city array, should now first make a request to openweatherapi and when getting a response should save that information in the city array
+
+* Now that we have the current weather for the cities in our city list, also show the current temperature in the list.
+
+### Tips
+
+Use method 
+
+## Exercies 4, save the list and load on update
+
+In this exercise we will save the city list to localstorage, so we get the same list when we leave the page and come back or during reloads. The localstorage integration is already created
+
+
+
 
 ## Step 6, click clicking on a city, route to a new page
 
