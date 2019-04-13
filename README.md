@@ -4,6 +4,8 @@ The purpose of this project is to try the different parts in VueJS and in the sa
 In these exercises we will go through the most used concepts in VueJS.
 This project will be based on a number of steps and in the end the result will be a weather app. There are also branch which you can checkout to see the result of each exercise.
 
+Feel free to style the app when or in which exercise you please, this is just exercise on VueJs.
+
 ## Pre steps
 
 * Go to https://openweathermap.org/api and sign up for an account.
@@ -24,7 +26,7 @@ To create this list, we need an input element with a button to add new cities to
 
 Use ```v-model```, ```@update```, ```@click``` to finish the exercise.
 
-### Examples
+### Example
 
 If you get stuck or when you finished the first exercies, the is finished example is [here](examples/step-1.PNG). As well in git branch step-1.
 
@@ -43,7 +45,7 @@ When clicking this button the corresponding city should be removed and only that
 ### Tips
 Use ```filter``` to remove the correct element from the list.
 
-### Examples
+### Example
 
 If you get stuck or when you finished the exercies, the is finished example is [here](examples/step-2.PNG). As well in git branch step-2.
 
@@ -61,7 +63,11 @@ Openweatherapi gives us more the just the current weather, so we will store all 
 
 ### Tips
 
-Use method 
+Use method ```getCurrentWeather``` from Api.js.
+
+### Example
+
+If you get stuck or when you finished the exercies, the is finished example is [here](examples/step-3.PNG). As well in git branch step-2. Note that I also added some styling in this step.
 
 ## Exercies 4, save the list and load on update
 
