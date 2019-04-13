@@ -47,7 +47,7 @@ Use ```filter``` to remove the correct element from the list.
 
 If you get stuck or when you finished the exercies, the is finished example is [here](examples/step-2.PNG). As well in git branch step-2.
 
-## Exercies 4, integrate twoards the weather api
+## Exercies 3, integrate twoards the weather api
 
 In this exercies we will fetch the weather from openweatherapi and store that in our component state instead of just a city name. The Api integration is already created, what you need to do is first to add a Keys.js in the util folder. Then we need to fetch the weather for the city once we add a new city in our GUI.
 
@@ -63,7 +63,7 @@ Openweatherapi gives us more the just the current weather, so we will store all 
 
 Use method 
 
-## Exercies 5, save the list and load on update
+## Exercies 4, save the list and load on update
 
 In this exercise we will save the city list to localstorage, so we get the same list when we leave the page and come back or during reloads. The localstorage integration is already created
 
