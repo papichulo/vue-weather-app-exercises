@@ -10,8 +10,8 @@ export function addCity(city) {
   localStorage.setItem(localStorageCities, JSON.stringify(cities));
 }
 
-export function removeCity(city) {
+export function removeCity(cityId) {
   const cities = getCities();
-  const filteredCities = cities.filter(x => x.name.toLowerCase() !== city.name.toLowerCase());
+  const filteredCities = cities.filter(x => x.id !== cityId);
   localStorage.setItem(localStorageCities, JSON.stringify(filteredCities));
 }

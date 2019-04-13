@@ -67,18 +67,31 @@ Use method ```getCurrentWeather``` from Api.js.
 
 ### Example
 
-If you get stuck or when you finished the exercies, the is finished example is [here](examples/step-3.PNG). As well in git branch step-2. Note that I also added some styling in this step.
+If you get stuck or when you finished the exercies, the is finished example is [here](examples/step-3.PNG). As well in git branch step-3. Note that I also added some styling in this step.
 
 ## Exercies 4, save the list and load on update
 
-In this exercise we will save the city list to localstorage, so we get the same list when we leave the page and come back or during reloads. The localstorage integration is already created
+In this exercise we will save the city list to localstorage, so we get the same list when we leave the page and come back or during reloads. The localstorage integration is already created.
 
+### After completion
 
+* When adding a new City, the City is also saved in localStorage, ```Store.addCity```
 
+* When removing a city, it is also removed from localStorage, ```Store.removeCity```
 
-## Step 6, click clicking on a city, route to a new page
+* When reloading the page, the city list is populated with the cities saved in localstorage, ```Store.getCities```.
+  * This step requires you to use a lifecycle method.
 
-## Step 7, weather page should display specific weather for the clicked city
+### Tips
+I recommend using the mounted lifecycle event.
+
+### Example
+
+If you get stuck or when you finished the exercies, the is finished example is [here](examples/step-4.PNG). As well in git branch step-4. Note that I also added some styling in this step.
+
+## Step 5, click clicking on a city, route to a new page
+
+## Step 6, weather page should display specific weather for the clicked city
 
 Things to touch
 
