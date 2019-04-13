@@ -1,5 +1,7 @@
 <script>
   import { getCurrentWeather } from './util/Api';
+  import { getCities, addCity, removeCity } from './util/Store';
+
   export default {
     name: 'app',
     data: () => ({
@@ -14,13 +16,19 @@
         if (this.cityString) {
           const response = await getCurrentWeather(this.cityString);
           this.cities.push(response);
+          addCity(response);
           this.cityString = '';
         }
       },
       removeCity(cityId) {
         this.cities = this.cities.filter(x => x.id !== cityId);
+        removeCity(cityId)
       },
-    }
+    },
+    mounted() {
+      const savedCities = getCities();
+      this.cities = savedCities;
+    },
   }
 </script>
 
