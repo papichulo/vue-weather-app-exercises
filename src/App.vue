@@ -1,4 +1,5 @@
 <script>
+  import { getCurrentWeather } from './util/Api';
   export default {
     name: 'app',
     data: () => ({
@@ -9,12 +10,15 @@
       updateCityString(e) {
         this.cityString = e.target.value;
       },
-      addCity() {
-        this.cities.push(this.cityString);
-        this.cityString = '';
+      async addCity() {
+        if (this.cityString) {
+          const response = await getCurrentWeather(this.cityString);
+          this.cities.push(response);
+          this.cityString = '';
+        }
       },
-      removeCity(city) {
-        this.cities = this.cities.filter(x => x !== city);
+      removeCity(cityId) {
+        this.cities = this.cities.filter(x => x.id !== cityId);
       },
     }
   }
@@ -22,28 +26,62 @@
 
 <template>
   <div id="app">
-    <h2>Weather App</h2>
+    <h2 class="app-header">Weather App</h2>
     <div>
       <input type="input" @change="updateCityString" v-model="cityString"/>
       <button type="button" @click="addCity">add</button>
     </div>
-    <div v-for="city in cities" :key="city">
-      <div>
-        {{city}}
-        <button type="button" @click="removeCity(city)">remove</button>
+    <div v-for="city in cities" :key="city.id" class="cities">
+      <div class="city-item">
+        <div>
+          {{ city.name }}
+        </div>
+        <div>
+          {{ city.main.temp }}
+          <button type="button" @click="removeCity(city.id)">remove</button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 
-<style>
+<style scoped>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  background-color: #7e7e7e;
 }
+.city-item {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  border-bottom: 1px solid white;
+  padding: 10px;
+}
+.app-header {
+  height: 50px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-bottom: 3px solid white;
+  font-size: 1.5em;
+}
+
+.cities {
+  flex: 2;
+}
+
+@media(min-width: 768px) {
+  .cities {
+    width: 50%;
+    margin: auto;
+  }
+}
+
+
 </style>
