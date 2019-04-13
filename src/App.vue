@@ -13,6 +13,9 @@
         this.cities.push(this.cityString);
         this.cityString = '';
       },
+      removeCity(city) {
+        this.cities = this.cities.filter(x => x !== city);
+      },
     }
   }
 </script>
@@ -25,7 +28,10 @@
       <button type="button" @click="addCity">add</button>
     </div>
     <div v-for="city in cities" :key="city">
-      <p>{{city}}</p>
+      <div>
+        {{city}}
+        <button type="button" @click="removeCity(city)">remove</button>
+      </div>
     </div>
   </div>
 </template>
