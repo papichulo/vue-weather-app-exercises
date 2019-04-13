@@ -122,7 +122,9 @@ Since its a bit more code in this exercise, it's best if you checkout the step-5
 
 This is the final exercise in this project. This is more of a play around with Vue exercise. One thing that you should do is to get the forecast for the city which we get by id from the URL. The you can display the GUI how you want and play around with Vue. To get the weather forecast, use the ```Api.getWeatherForecast()```. Also try to use a computed property, the are getters for the component which are stashed, which are very useful.
 
+## Final version
 
+The final version of this project can be located at git branch final version
 
 ## Project setup
 
