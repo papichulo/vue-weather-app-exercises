@@ -1,7 +1,12 @@
 # vue-weather-app-exercises
 
 The purpose of this project is to try the different parts in VueJS and in the same time build something useful.
-In these exercises we will go through the most used concepts in VueJS.
+In these exercises we will go cover:
+
+* how to use component state,
+* vue DOM events and calling methods
+* use lifecycle methods
+
 This project will be based on a number of steps and in the end the result will be a weather app. There are also branch which you can checkout to see the result of each exercise.
 
 ## Pre steps
@@ -94,41 +99,49 @@ If you get stuck or when you finished the exercies, the is finished example is [
 In this exercise we setup routing for our application.
 Start with ```vue add router``` in the terminal. This will add vue-router plus given an example setup of routing.
 When I did this in the exercises, it didnt get the setup completly right, since we have written some code in App.vue.
-After doing the add router command, the App.vue should look like [this](). In order to get this right, we also need to move all the App.vue code to a new component. I put mine in components/ListHandler.vue.
+After doing the add router command, the App.vue should look like [this](examples/step-5-app.PNG). In order to get this right, we also need to move all the App.vue code to a new component. I put mine in components/ListHandler.vue. In files structure looks like [this](examples/step-5-structure.PNG) now.
 
-After we have added routing we also need to use the routing, the thought of this exercise is when selecting a city in the city list, to route to a new page, where we in the next exercise can display a forecast for the selected city.
+After we have added routing we also need to use the routing, the thought of this exercise is that when selecting a city in the city list, to route to a new page, where we in the next exercise can display a forecast for the selected city.
 
-So add a new component under components, I called mine CityHandler.vue, which can just print out some text. Then in router.js, point to the 2 newly added components. Then 
+So add a new component under components, I called mine CityHandler.vue, which can just print out some text for now. Then in router.js, point to the 2 newly added components, so both components can be reached on different URLs.
+
+After this we want to route, not be changing the URL, but by some action in the GUI. From the city list, we want to, when selecting a city, to route to a new page and we want to know which city we selected in the previous page. This can be solved by sending the id in the URL to the routed page. When selecting a city in the city list, we should use the ```router-link``` component, like [this](examples/step-5-list-template.PNG).
+
+### After completion
+
+* App.vue now only handles routing and the code that was in App.vue is located in a new component
+* we have created a city component
+* We have routing between these 2 components
+* the city component gets the id of the clicked city in the city list
+
+### Example
+
+Since its a bit more code in this exercise, it's best if you checkout the step-5 branch to see how the setup of routing can look like.
 
 ## Step 6, weather page should display specific weather for the clicked city
 
-Things to touch
-
-data,
-computed,
-watch
-state
-scoped CSS
-component structure
-lifecycle methods
-
+This is the final exercise in this project. This is more of a play around with Vue exercise. One thing that you should do is to get the forecast for the city which we get by id from the URL. The you can display the GUI how you want and play around with Vue. To get the weather forecast, use the ```Api.getWeatherForecast()```. 
 
 ## Project setup
+
 ```
 npm install
 ```
 
 ### Compiles and hot-reloads for development
-```
+
+``` npm
 npm run serve
 ```
 
 ### Compiles and minifies for production
-```
+
+``` npm
 npm run build
 ```
 
 ### Lints and fixes files
-```
+
+``` npm
 npm run lint
 ```
