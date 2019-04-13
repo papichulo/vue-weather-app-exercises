@@ -72,14 +72,11 @@
   font-size: 1.5em;
 }
 
-.cities {
-  flex: 2;
-}
-
 @media(min-width: 768px) {
   .cities {
     width: 50%;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
