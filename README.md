@@ -8,6 +8,7 @@ This project will be based on a number of steps and in the end the result will b
 
 * Go to https://openweathermap.org/api and sign up for an account.
 * clone project and run npm install
+* install Vue-cli, its required to do the rounting exercise
 
 ## Exercies 1, Creating a city list
 
@@ -89,6 +90,15 @@ I recommend using the mounted lifecycle event.
 If you get stuck or when you finished the exercies, the is finished example is [here](examples/step-4.PNG). As well in git branch step-4. Note that I also added some styling in this step.
 
 ## Step 5, click clicking on a city, route to a new page
+
+In this exercise we setup routing for our application.
+Start with ```vue add router``` in the terminal. This will add vue-router plus given an example setup of routing.
+When I did this in the exercises, it didnt get the setup completly right, since we have written some code in App.vue.
+After doing the add router command, the App.vue should look like [this](). In order to get this right, we also need to move all the App.vue code to a new component. I put mine in components/ListHandler.vue.
+
+After we have added routing we also need to use the routing, the thought of this exercise is when selecting a city in the city list, to route to a new page, where we in the next exercise can display a forecast for the selected city.
+
+So add a new component under components, I called mine CityHandler.vue, which can just print out some text. Then in router.js, point to the 2 newly added components. Then 
 
 ## Step 6, weather page should display specific weather for the clicked city
 
