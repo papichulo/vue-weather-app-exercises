@@ -27,6 +27,12 @@ function getDayFromDateString(unixDateTimeStamp) {
   }
 }
 
+function formatTime(unixDateTimeStamp) {
+  const formatedDate = new Date(unixDateTimeStamp*1000);
+  const time = `${formatedDate.getHours()}`.length === 1 ? `0${formatedDate.getHours()}` : `${formatedDate.getHours()}`;
+  return time;
+}
+
 export default {
   name: 'cityHandler',
   data: () => ({
@@ -60,14 +66,17 @@ export default {
         return 'city-handler--clouds';
 
       }
-      return 'city-handler--sun';
+      return '';
     },
     getForecastsByDay() {
       const sortedWeather = [];
       for(const weather of this.weatherList) {
         const dateString = weather.dt_txt.split(' ')[0];
 
-        const dayObject = sortedWeather.find(x => x.dateString === dateString)
+        const dayObject = sortedWeather.find(x => x.dateString === dateString);
+
+        const weatherWithTime = weather;
+        weatherWithTime.time = formatTime(weather.dt);
         if (dayObject) {
           dayObject.list.push(weather);
         } else {
@@ -84,6 +93,7 @@ export default {
         const res = await getWeatherForecast(this.$route.params.id);
         this.cityName = res.city.name;
         this.weatherList = res.list;
+        this.selectedWeather = res.list[0];
       }
     },
     onSelect(weather) {
@@ -105,12 +115,17 @@ export default {
         {{ Math.round(selectedWeather.main.temp) }}
       </div>
     </div>
-    <div class="forecast-list">
+    <div class="forecast-days">
       <div v-for="dayForecast in getForecastsByDay" :key="dayForecast.dateString">
         <span>{{dayForecast.day}}</span>
-        <div v-for="weather in dayForecast.list" :key="weather.dt">
-          <button @click="onSelect(weather)">
-            {{ Math.round(weather.main.temp) }}
+        <div class="forecast-list">
+          <button v-for="weather in dayForecast.list" :key="weather.dt" @click="onSelect(weather)" class="forecast-button">
+            <span>
+              {{ weather.time }}
+            </span>
+            <span>
+              {{ Math.round(weather.main.temp) }}°
+            </span>
           </button>
         </div>
       </div>
@@ -136,6 +151,13 @@ export default {
   grid-row: 1;
   padding-top: 10px;
   font-size: 25px;
+  padding-left: 10px;
+}
+
+.forecast-button {
+  display: flex;
+  flex-direction: column;
+  color: white;
 }
 
 .header-title {
@@ -154,13 +176,20 @@ export default {
 }
 
 
-.forecast-list {
+.forecast-days {
   grid-column-start: 2;
   grid-column-end: 2;
   grid-row: 3;
   display: flex;
   justify-content: space-between;
+  overflow-x: auto;
+}
 
+.forecast-list {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-right: 30px;
 }
 
 body::after{
