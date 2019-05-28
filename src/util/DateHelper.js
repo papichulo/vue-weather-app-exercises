@@ -5,6 +5,11 @@ export function formatDate(date) {
   return time;
 }
 
+export function formatTime(unixDateTimeStamp) {
+  const formatedDate = new Date(unixDateTimeStamp*1000);
+  const time = `${formatedDate.getHours()}`.length === 1 ? `0${formatedDate.getHours()}` : `${formatedDate.getHours()}`;
+  return time;
+}
 
 export function getDayFromDateString(dateString) {
   const date = new Date(dateString);

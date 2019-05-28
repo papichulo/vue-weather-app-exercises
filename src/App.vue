@@ -1,19 +1,6 @@
-<script>
-  export default {
-    name: 'app',
-    data: () => ({
-      // component state goes here
-    }),
-    methods: {
-      // method for updating input value goes here
-      // method for click event goes here
-    }
-  }
-</script>
-
 <template>
   <div id="app">
-    <h2>Weather App</h2>
+    <router-view/>
   </div>
 </template>
 
